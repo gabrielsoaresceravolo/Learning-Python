@@ -56,17 +56,17 @@ print(f"A Média da Raiz Quadrada é: {str(media)}")
 
 codigoProduto = int(input("Digite o código do produto: "))
 
-if codigoProduto == 1:
+if (codigoProduto == 1):
     print("Alimento não-perecível")
-elif codigoProduto in [2, 3]:
+elif (codigoProduto in [2, 3]):
     print("Alimento perecível")
-elif codigoProduto in [4, 5, 6]:
+elif (codigoProduto in [4, 5, 6]):
     print("Vestuário")
-elif codigoProduto in [7, 8, 9]:
+elif (codigoProduto in [7, 8, 9]):
     print("Limpeza")
-elif codigoProduto == 10:
+elif (codigoProduto == 10):
     print("Utensílios domésticos")
-elif codigoProduto in [11, 12]:
+elif (codigoProduto in [11, 12]):
     print("Eletrônicos")
 else:
     print("Código inválido")
@@ -80,9 +80,9 @@ consumoMedio = distanciaTotal / combustivelConsumido
 
 print(f"Consumo médio: {str(consumoMedio)} km/l")
 
-if consumoMedio < 8:
+if (consumoMedio < 8):
     print("Venda o carro agora!")
-elif consumoMedio >= 8 and consumoMedio <= 12:
+elif (consumoMedio >= 8 and consumoMedio <= 12):
     print("Pense em vender o carro!")
 else:
     print("Relativamente econômico!")
@@ -92,25 +92,25 @@ else:
 mediaFinal = float(input("Digite a média final do aluno: "))
 numFaltas = int(input("Digite o número de faltas do aluno: "))
 
-if numFaltas > 14:
-    if mediaFinal >= 9.0:
+if (numFaltas) > 14:
+    if (mediaFinal) >= 9.0:
         conceito = "B"
-    elif mediaFinal >= 7.5:
+    elif (mediaFinal) >= 7.5:
         conceito = "C"
-    elif mediaFinal >= 6.0:
+    elif (mediaFinal) >= 6.0:
         conceito = "D"
-    elif mediaFinal >= 4.0:
+    elif (mediaFinal) >= 4.0:
         conceito = "E"
     else:
         conceito = "E"
 else:
-    if mediaFinal >= 9.0:
+    if (mediaFinal) >= 9.0:
         conceito = "A"
-    elif mediaFinal >= 7.5:
+    elif (mediaFinal) >= 7.5:
         conceito = "B"
-    elif mediaFinal >= 6.0:
+    elif (mediaFinal) >= 6.0:
         conceito = "C"
-    elif mediaFinal >= 4.0:
+    elif (mediaFinal) >= 4.0:
         conceito = "D"
     else:
         conceito = "E"
@@ -121,7 +121,7 @@ print(f"Conceito final do aluno: {str(conceito)}")
 
 novoPreco = float(input("Digite o preço do produto: R$ "))
 
-if novoPreco < 250.00:
+if (novoPreco < 250.00):
     imposto = 0.15
 else:
     imposto = 0.25
@@ -137,11 +137,11 @@ altura = float(input("Digite a altura (em metros): "))
 
 IMC = peso / altura**2
 
-if IMC < 18.5:
+if (IMC < 18.5):
     print("Abaixo do peso!")
-elif 18.5 <= IMC < 25:
+elif (18.5 <= IMC < 25):
     print("Peso esperado!")
-elif 25 <= IMC < 30:
+elif (25 <= IMC < 30):
     print("Acima do peso!")
 else:
     print("Muito acima do peso!")
@@ -161,28 +161,32 @@ print(f"{a} elevado a {b} é igual a {resultado}")
 
 n = int(input("Digite um número inteiro positivo: "))
 
-if n < 0:
+if(n < 0):
     print("Erro: Não é possível calcular o fatorial de um número negativo")
 else:
     fatorial = 1
-    for i in range(1, n + 1):
+    i = 1
+    while(i <= n):
         fatorial *= i
+        i += 1
     print(f'O fatorial de {str(n)} é {str(fatorial)}.')
 
 # ==============================================================================
-    
+
 p = int(input("Digite um número inteiro positivo: "))
 
-if p < 2:
+if (p < 2):
     print(p, "não é um número primo!")
 else:
     primo = True
-    for i in range(2, int(p ** 0.5) + 1):
-        if p % i == 0:
+    i = 2
+    while (i <= int(p ** 0.5)):
+        if (p % i == 0):
             primo = False
             break
+        i += 1
 
-    if primo:
+    if (primo):
         print(f"{str(p)} é um número primo!")
     else:
         print(f"{str(p)} não é um número primo!")
@@ -193,13 +197,69 @@ a = int(input("Digite o valor de a: "))
 b = int(input("Digite o valor de b: "))
 
 numeroPrimo = []
+num = a
 
-for num in range(a, b + 1):
-    if num > 1:
-        for i in range(2, int(num ** 0.5) + 1):
+while (num <= b):
+    if (num > 1):
+
+        i = 2
+
+        while (i <= int(num ** 0.5)):
             if (num % i) == 0:
                 break
-        else:
-            numeroPrimo.append(num)
+            i += 1
+    else:
+        numeroPrimo.append(num) # está adicionando os números primos encontrados
+
+num += 1
 
 print(f"Números primos entre {str(a)} e {str(b)}: {str(numeroPrimo)}")
+
+# ==============================================================================
+
+n = int(input("Digite o valor de n para encontrar o n-ésimo termo da Sequência de Fibonacci: "))
+
+fib1 = 1
+fib2 = 1
+
+if (n <= 0):
+    print("N deve ser um número inteiro positivo maior que 0")
+elif (n == 1 or n == 2):
+    print(f"O {str(n)} termo da Sequência de Fibonacci é: 1")
+else:
+    i = 3
+    while (i <= n):
+        fib = fib1 + fib2
+        fib1 = fib2
+        fib2 = fib
+        i += 1
+
+    print(f"O {str(n)} termo da Sequência de Fibonacci é: {str(fib)}")
+
+# ==============================================================================
+
+n = int(input("Digite um número inteiro positivo: "))
+
+reverso = 0
+
+while (n > 0):
+    digito = n % 10
+    reverso = reverso * 10 + digito
+    n = n // 10
+
+print(f"O número reverso é: {str(reverso)}")
+
+# ==============================================================================
+
+numero = int(input("Insira um número inteiro positivo maior ou igual a 10: "))
+
+if (numero >= 10):
+
+    numero_str = str(numero)
+    if (numero_str == numero_str[::-1]):
+        print(f"{str(numero)} é um número palíndromo")
+    else:
+        print(f"{str(numero)} não é um número palíndromo")
+        
+else:
+    print("Por favor, insira um número inteiro positivo maior ou igual a 10")
